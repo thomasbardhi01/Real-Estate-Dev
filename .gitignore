@@ -1,0 +1,49 @@
+# Data file extensions
+*.lyr
+*.shp
+*.shx
+*.dbf
+*.prj
+*.xml
+*.gdbtable
+*.gdbindexes
+*.atx
+*.pdf
+*.aux
+*.rdd
+*.adf
+*.nit
+*.dat
+*.ixs
+*.loc
+*.lox
+*.txx
+*.dir
+*.lyrx
+*.fix
+*.gcpk
+*.tif
+*.csv
+*.json
+
+# Directories to ignore
+debug_failed_properties/
+massgis_data/
+aquifers/
+congresssional_districts/
+contaminated_sites/
+counties/
+fire_stations/
+flood_zones_nfhl/
+
+# System/IDE files
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Virtual environments
+.venv/
+venv/
+env/
+xenv/
