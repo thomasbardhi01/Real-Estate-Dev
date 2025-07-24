@@ -1,0 +1,4 @@
+school_id:ID(School),name,level,:LABEL
+1,Braintree Elementary,ELEMENTARY,School
+2,Braintree Middle School,MIDDLE,School
+3,Braintree High School,HIGH,School
