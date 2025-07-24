@@ -2,10 +2,12 @@
 // Generated: 2025-07-24 with address validation fixes and Cypher function corrections
 // Import order: Nodes first, then relationships
 // 
-// DRAG AND DROP INSTRUCTIONS:
-// 1. Upload owners.csv, properties.csv, ownership_relationships.csv to Neo4j Aura
-// 2. Run this script in Neo4j Browser
+// IMPORT INSTRUCTIONS:
+// 1. Copy and paste this entire script into Neo4j Browser
+// 2. Run it (it will load from GitHub automatically)
 // 3. Verify import with validation queries below
+// 
+// CSV files are hosted at: https://github.com/thomasbardhi01/Real-Estate-Dev/tree/main/NEO4J_AURA_IMPORT
 //
 // ADDRESS QUALITY: All 1,169 invalid addresses have been recovered and fixed!
 
@@ -23,7 +25,7 @@ FOR (p:Property) REQUIRE p.id IS UNIQUE;
 // STEP 2: IMPORT OWNERS (12,139 records)
 // ============================================================
 
-LOAD CSV WITH HEADERS FROM 'file:///owners.csv' AS row
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/thomasbardhi01/Real-Estate-Dev/main/NEO4J_AURA_IMPORT/owners.csv' AS row
 CREATE (o:Owner {
     id: row.`:ID(Owner)`,
     name: row.name,
@@ -50,7 +52,7 @@ CREATE (o:Owner {
 // STEP 3: IMPORT PROPERTIES (13,497 records)
 // ============================================================
 
-LOAD CSV WITH HEADERS FROM 'file:///properties.csv' AS row
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/thomasbardhi01/Real-Estate-Dev/main/NEO4J_AURA_IMPORT/properties.csv' AS row
 CREATE (p:Property {
     id: row.`:ID(Property)`,
     address: row.address,
@@ -84,7 +86,7 @@ CREATE (p:Property {
 // STEP 4: CREATE OWNERSHIP RELATIONSHIPS (13,615 records)
 // ============================================================
 
-LOAD CSV WITH HEADERS FROM 'file:///ownership_relationships.csv' AS row
+LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/thomasbardhi01/Real-Estate-Dev/main/NEO4J_AURA_IMPORT/ownership_relationships.csv' AS row
 MATCH (owner:Owner {id: row.`:START_ID(Owner)`})
 MATCH (property:Property {id: row.`:END_ID(Property)`})
 CREATE (owner)-[owns:OWNS {
